@@ -1,4 +1,3 @@
-bob Cleartext-Password := "test"
 #
 # 	Configuration file for the rlm_files module.
 # 	Please see rlm_files(5) manpage for more information.
@@ -43,6 +42,11 @@ bob Cleartext-Password := "test"
 #	educational purposes. They may be deleted from the deployed
 #	configuration without impacting the operation of the server.
 #
+
+#####################PROJET#####################
+
+testing Cleartext-Password := "password"
+
 
 #
 # Deny access for a specific user.  Note that this entry MUST
