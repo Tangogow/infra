@@ -1,0 +1,97 @@
+dn: ou=People,dc=projet,dc=local
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Groups,dc=projet,dc=local
+objectClass: organizationalUnit
+ou: Groups
+
+dn: cn=Dsi,ou=Groups,dc=projet,dc=local
+objectClass: posixGroup
+cn: Dsi
+gidNumber: 5000
+
+dn: cn=OtherUsers,ou=Groups,dc=projet,dc=local
+objectClass: posixGroup
+cn: OtherUsers
+gidNumber: 6000
+
+dn: uid=alexis,ou=People,dc=projet,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: alexis
+sn: pleney
+givenName: Alexis
+cn: Alexis Pleney
+displayName: Alexis Pleney
+uidNumber: 10005
+gidNumber: 5000
+userPassword: {CRYPT}x
+gecos: Alexis Pleney
+loginShell: /bin/bash
+homeDirectory: /home/alexis
+
+dn: uid=daniel,ou=People,dc=projet,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: daniel
+sn: seck
+givenName: Daniel
+cn: Daniel Seck
+displayName: Daniel Seck
+uidNumber: 10006
+gidNumber: 5000
+userPassword: {CRYPT}x
+gecos: Daniel Seck
+loginShell: /bin/bash
+homeDirectory: /home/daniel
+
+dn: uid=florian,ou=People,dc=projet,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: florian
+sn: joly
+givenName: Florian
+cn: Florian Joly
+displayName: Florian Joly
+uidNumber: 10007
+gidNumber: 5000
+userPassword: {CRYPT}x
+gecos: Florian Joly
+loginShell: /bin/bash
+homeDirectory: /home/florian
+
+dn: uid=stephane,ou=People,dc=projet,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: stephane
+sn: trochu
+givenName: Stephane
+cn: Stephane Trochu
+displayName: Stephane Trochu
+uidNumber: 10008
+gidNumber: 5000
+userPassword: {CRYPT}x
+gecos: Stephane Trochu
+loginShell: /bin/bash
+homeDirectory: /home/stephane
+
+dn: uid=otherusers,ou=People,dc=projet,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: otherusers
+sn: otherusers
+givenName: OtherUsers
+cn: OtherUsers
+displayName: OtherUsers
+uidNumber: 10009
+gidNumber: 6000
+userPassword: {CRYPT}x
+gecos: OtherUsers
+loginShell: /bin/bash
+homeDirectory: /home/otherusers

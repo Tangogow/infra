@@ -7,9 +7,13 @@
     <body>
     
         <?php
-    if (isset($_POST['Password']) AND $_POST['Password'] ==  "Projet") // Si le mot de passe est bon
-    {
-    // On affiche les codes
+    	require_once('radius.class.php');
+	$radius = new Radius('172.17.0.3', 'testing123');
+	$result = $radius->AccessRequest($_POST['Username'],$_POST['Password']);
+	if ($result) {
+  	echo 'Authentication successful';
+
+    
     ?>
         <h1>Voici les codes d'accès :</h1>
         <p><strong>CRD5-GTFT-CK65-JOPM-V29N-24G1-HH28-LLFV</strong></p>   
@@ -20,12 +24,11 @@
         </p>
         <?php
     }
-    else // Sinon, on affiche un message d'erreur
-    {
-        echo '<p>Mot de passe incorrect</p>';
-    }
+    else {
+  	echo 'Authentication failed';
+	}
     ?>
-    
+
         
     </body>
 </html>

@@ -44,11 +44,20 @@ RUN echo "path-include /usr/share/doc/krb5*" >> /etc/dpkg/dpkg.cfg.d/docker && a
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt update \
-    && apt install nano
-							
+    && apt install nano \
+    && apt install openssh-server -y							
+
+#SSH ACCESS
+RUN mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys
+COPY authorized_keys /root/.ssh/
+RUN chmod 700 /root/.ssh/
+RUN chmod 600 /root/.ssh/authorized_keys
+RUN /etc/init.d/ssh restart
+
 # Add service directory to /container/service
 ADD service /container/service
 
+COPY add_content.ldif /etc/ldap/
 # Use baseimage install-service script
 # https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service
 RUN /container/tool/install-service
@@ -57,7 +66,7 @@ RUN /container/tool/install-service
 ADD environment /container/environment/99-default
 
 # Expose default ldap and ldaps ports
-EXPOSE 389 636
+EXPOSE 389 636 22
 
 # Put ldap config and database dir in a volume to persist data.
 VOLUME slapd.d /var/lib/ldap
